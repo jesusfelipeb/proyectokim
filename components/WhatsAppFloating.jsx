@@ -23,7 +23,7 @@ const WhatsAppFloating = () => {
       </span>
 
       {/* Círculo del botón */}
-      <div className="bg-[#25D366] p-4 rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center">
+      <div className="bg-[#acadacd0] p-4 rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center">
         <svg 
           className="w-8 h-8 fill-white" 
           xmlns="http://www.w3.org/2000/svg" 

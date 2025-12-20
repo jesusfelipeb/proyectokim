@@ -1,24 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
-    './pages/**/*.{js,jsx,ts,tsx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#4A5759',    // Verde Bosque
-        secondary: '#DAA813',  // Amarillo Suave
-        neutral: '#DCCCA3',    // Marrón Tierra
-        dark: '#2A2F32',       // Marrón Oscuro
-        accent: '#C8D7C8',     // Acento Verde Claro
+        // Colores para público de élite
+        'obsidian': '#1A1A1A',   // Negro profundo para textos y elegancia
+        'gold-heritage': '#9F8052', // Dorado apagado, sofisticado
+        'linen': '#F4F1EA',      // Fondo cálido, no cansa la vista
+        'slate-soft': '#4A4A4A', // Textos secundarios
       },
       fontFamily: {
-        heading: ['Playfair Display', 'serif'],
-        body: ['Lato', 'sans-serif'], // O 'Inter', 'sans-serif'
-      }
+        // Necesitaremos importar Cormorant Garamond en el Layout
+        serif: ['var(--font-cormorant)', 'serif'], 
+        sans: ['var(--font-inter)', 'sans-serif'],
+      },
     },
   },
   plugins: [],
-}
+};
