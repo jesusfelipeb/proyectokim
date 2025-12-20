@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ScrollReveal } from './ScrollReveal';
+
 
 const About = () => {
   const stats = [
