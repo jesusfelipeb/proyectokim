@@ -8,22 +8,22 @@ const Footer = () => {
 
   const navigation = {
     servicios: [
-      { name: 'Lectura de Tarot', href: '/servicios' },
-      { name: 'Consulta Estratégica', href: '/servicios' },
-      { name: 'Life Coaching', href: '/servicios' },
-      { name: 'Programas Élite', href: '/servicios' },
+      { name: 'Lectura de Tarot', href: '/services' },
+      { name: 'Consulta Estratégica', href: '/services' },
+      { name: 'Life Coaching', href: '/services' },
+      { name: 'Programas Élite', href: '/services' },
+    ],
+    tienda: [
+      { name: 'Velas Rituales', href: '/tienda' },
+      { name: 'Cristales', href: '/tienda' },
+      { name: 'Incienso', href: '/tienda' },
+      { name: 'Ver Todo', href: '/tienda' },
     ],
     empresa: [
-      { name: 'Sobre Kim', href: '/sobre-mi' },
-      { name: 'Metodología', href: '/acreditaciones' },
+      { name: 'Sobre Kim', href: '/about' },
+      { name: 'Contacto', href: '/contacto' },
       { name: 'Privacidad', href: '/privacidad' },
       { name: 'Términos', href: '/terminos' },
-    ],
-    recursos: [
-      { name: 'Journal', href: '/blog' },
-      { name: 'Multimedia', href: '/multimedia' },
-      { name: 'Testimonios', href: '/testimonios' },
-      { name: 'Preguntas Frecuentes', href: '/faq' },
     ],
   };
 
@@ -80,7 +80,7 @@ const Footer = () => {
                 Da el primer paso hacia una vida alineada con tu propósito más profundo
               </p>
 
-              <Link href="/servicios">
+              <Link href="/services">
                 <button className="group relative border bg-white text-slate-900 px-10 py-5 overflow-hidden transition-all duration-300 hover:bg-amber-300">
                   <span className="relative z-10 uppercase tracking-[0.2em] text-xs font-medium group-hover:text-white transition-colors">
                     Solicitar Consulta Privada
@@ -149,16 +149,16 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Recursos */}
+            {/* Tienda */}
             <div>
               <h4 className="font-serif text-base text-amber-600 mb-6 italic">
-                Explorar
+                Tienda
               </h4>
               <ul className="space-y-3">
-                {navigation.recursos.map((item) => (
+                {navigation.tienda.map((item) => (
                   <li key={item.name}>
-                    <Link 
-                      href={item.href} 
+                    <Link
+                      href={item.href}
                       className="text-sm text-slate-400 hover:text-white transition-colors duration-300 inline-block"
                     >
                       {item.name}

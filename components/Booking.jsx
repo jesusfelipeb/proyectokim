@@ -2,6 +2,12 @@
 
 import React from 'react';
 import { InlineWidget } from 'react-calendly';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
 
 const Booking = () => {
   return (
@@ -15,23 +21,28 @@ const Booking = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Cabecera de Reserva */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-6">
+        <motion.div
+          className="max-w-3xl mx-auto text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-6">
             <div className="w-12 h-[1px] bg-amber-600"></div>
             <span className="uppercase tracking-[0.25em] text-amber-700 text-xs font-medium">
               Disponibilidad Exclusiva
             </span>
             <div className="w-12 h-[1px] bg-amber-600"></div>
-          </div>
+          </motion.div>
 
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
+          <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
             Asegura tu <span className="italic text-amber-800">espacio sagrado</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+          <motion.p variants={fadeUp} className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
             Gestiona tu consulta de manera privada. Selecciona el momento que mejor se alinee con tu ritmo de vida actual.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Contenedor del Widget */}
         <div className="max-w-5xl mx-auto">

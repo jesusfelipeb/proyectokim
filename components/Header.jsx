@@ -25,7 +25,8 @@ const Header = () => {
     { href: '/', label: 'Inicio' },
     { href: '/about', label: 'Sobre Mí' },
     { href: '/services', label: 'Servicios' },
-    // { href: '/contacto', label: 'Contacto' },
+    { href: '/tienda', label: 'Tienda' },
+    { href: '/contacto', label: 'Contacto' },
   ];
 
   const isActive = (path) => pathname === path;
@@ -71,7 +72,7 @@ const Header = () => {
 
             {/* CTA Final */}
             <div className="flex items-center gap-8">
-              <Link href="/servicios" className="hidden md:block">
+              <Link href="/services" className="hidden md:block">
                 <button className="font-sans text-[10px] uppercase tracking-[0.2em] border border-obsidian px-6 py-3 hover:bg-obsidian hover:text-white transition-all duration-500">
                   Agendar Cita
                 </button>
@@ -115,7 +116,7 @@ const Header = () => {
           
           <div className="h-[1px] w-20 bg-gold-heritage/30"></div>
           
-          <Link href="/servicios">
+          <Link href="/services">
              <button className="font-sans text-xs uppercase tracking-[0.3em] text-gold-heritage border-b border-gold-heritage pb-2">
                Comenzar Transformación
              </button>

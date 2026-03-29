@@ -25,14 +25,14 @@ export default function AboutPage() {
       <section className="bg-white py-16 px-6 md:px-12">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Imagen (Placeholder) */}
-          <div className="w-full md:w-1/2 h-96 relative bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            {/* Aquí iría una foto de Kim diferente a la del Home */}
-             <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                [Foto Personal / Lifestyle]
-             </div>
-             {/* Descomentar cuando tengas la imagen real:
-             <Image src="/images/kim-about.jpg" alt="Kim Cedeño" layout="fill" objectFit="cover" /> 
-             */}
+          <div className="w-full md:w-1/2 h-96 relative rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/kim1.jpg"
+              alt="Kim Cedeño"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
           {/* Texto de la Historia */}

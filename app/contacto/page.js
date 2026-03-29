@@ -64,27 +64,29 @@ export default function ContactPage() {
             {/* COLUMNA DERECHA: Formulario */}
             <div className="lg:w-2/3">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-300">
-                <form className="grid md:grid-cols-2 gap-6">
+                <form name="contacto" method="POST" data-netlify="true" className="grid md:grid-cols-2 gap-6">
+                  <input type="hidden" name="form-name" value="contacto" />
                   <div className="flex flex-col">
-                    <label className="text-sm font-bold text-dark mb-2 ml-1">Nombre completo</label>
-                    <input type="text" placeholder="Tu nombre" className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none" />
+                    <label htmlFor="nombre" className="text-sm font-bold text-dark mb-2 ml-1">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none" />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm font-bold text-dark mb-2 ml-1">Correo electrónico</label>
-                    <input type="email" placeholder="tu@email.com" className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none" />
+                    <label htmlFor="email" className="text-sm font-bold text-dark mb-2 ml-1">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com" className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none" />
                   </div>
                   <div className="flex flex-col md:col-span-2">
-                    <label className="text-sm font-bold text-dark mb-2 ml-1">Asunto</label>
-                    <select className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none appearance-none">
+                    <label htmlFor="asunto" className="text-sm font-bold text-dark mb-2 ml-1">Asunto</label>
+                    <select id="asunto" name="asunto" className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none appearance-none">
                       <option>Consulta General</option>
                       <option>Sesión de Tarot</option>
                       <option>Life Coaching</option>
+                      <option>Productos / Tienda</option>
                       <option>Problemas con mi reserva</option>
                     </select>
                   </div>
                   <div className="flex flex-col md:col-span-2">
-                    <label className="text-sm font-bold text-dark mb-2 ml-1">Mensaje</label>
-                    <textarea rows="5" placeholder="Cuéntame cómo puedo ayudarte..." className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none resize-none"></textarea>
+                    <label htmlFor="mensaje" className="text-sm font-bold text-dark mb-2 ml-1">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" required rows="5" placeholder="Cuéntame cómo puedo ayudarte..." className="bg-neutral/50 border-2 border-gray-500 rounded-xl p-4 focus:ring-2 focus:ring-secondary transition-all outline-none resize-none"></textarea>
                   </div>
                   <div className="md:col-span-2">
                     <button type="submit" className="w-full bg-dark hover:bg-gray-800 hover:text-white border-2 text-dark font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1">

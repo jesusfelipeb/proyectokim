@@ -3,7 +3,16 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.15 } },
+};
 
 const About = () => {
   const stats = [
@@ -15,11 +24,17 @@ const About = () => {
   return (
     <section className="bg-white py-24 md:py-40 overflow-hidden border-b border-gold-heritage/10">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
-          
+        <motion.div
+          className="flex flex-col lg:flex-row items-center gap-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={stagger}
+        >
+
           {/* Columna de Imagen - Estilo Galería de Arte */}
-          
-            <div className="w-full lg:w-1/2 relative">
+
+            <motion.div variants={fadeUp} className="w-full lg:w-1/2 relative">
               <div className="relative z-10">
                 <div className="aspect-[4/5] relative overflow-hidden">
                   <Image
@@ -40,11 +55,11 @@ const About = () => {
                   Años de Maestría
                 </p>
               </div>
-            </div>
-          
+            </motion.div>
+
 
           {/* Columna de Texto - Narrativa de Autoridad */}
-          <div className="w-full lg:w-1/2 space-y-10">
+          <motion.div variants={fadeUp} className="w-full lg:w-1/2 space-y-10">
             <div>
               <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-gold-heritage mb-6 block font-bold">
                 La Visión detrás de la Guía
@@ -77,21 +92,27 @@ const About = () => {
             </div>
 
             <div className="pt-6">
-              <Link href="/servicios">
+              <Link href="/services">
                 <button className="group relative overflow-hidden bg-obsidian text-white px-12 py-5 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-500">
                   <span className="relative z-10">Explorar Metodología</span>
                   <div className="absolute inset-0 bg-gold-heritage translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 </button>
               </Link>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Timeline - Estilo Curator */}
-        <div className="mt-40 max-w-5xl mx-auto">
-          <h3 className="font-serif text-3xl text-center text-obsidian mb-20 italic">
+        <motion.div
+          className="mt-40 max-w-5xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={stagger}
+        >
+          <motion.h3 variants={fadeUp} className="font-serif text-3xl text-center text-obsidian mb-20 italic">
             Hitos de Excelencia
-          </h3>
+          </motion.h3>
           <div className="grid md:grid-cols-3 gap-16 relative">
             {/* Línea horizontal sutil */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-heritage/20 hidden md:block"></div>
@@ -101,7 +122,7 @@ const About = () => {
               { year: "2020", title: "Consolidación", desc: "Desarrollo del método propio 'Intuición Estratégica' para líderes." },
               { year: "2023", title: "Expansión Élite", desc: "Apertura de consultoría privada para clientes internacionales de alto nivel." },
             ].map((item, i) => (
-              <div key={i} className="pt-8">
+              <motion.div key={i} variants={fadeUp} className="pt-8">
                 <span className="font-serif text-2xl text-gold-heritage mb-4 block italic">{item.year}</span>
                 <h4 className="font-sans text-xs uppercase tracking-[0.2em] font-bold text-obsidian mb-4">
                   {item.title}
@@ -109,10 +130,10 @@ const About = () => {
                 <p className="font-sans text-sm text-slate-soft font-light leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

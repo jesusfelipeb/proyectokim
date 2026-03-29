@@ -2,6 +2,16 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.15 } },
+};
 
 const Services = () => {
   const servicesData = [
@@ -14,7 +24,7 @@ const Services = () => {
       features: ['Análisis de 10 arcanos', 'Enfoque evolutivo', 'Grabación de alta fidelidad'],
       badge: 'La Preferida',
       featured: true,
-      link: '/servicios',
+      link: '/services',
     },
     {
       id: 2,
@@ -25,7 +35,7 @@ const Services = () => {
       features: ['Pregunta puntual', 'Resolución de bloqueos', 'Plan de acción inmediato'],
       badge: null,
       featured: false,
-      link: '/servicios',
+      link: '/services',
     },
     {
       id: 3,
@@ -36,7 +46,7 @@ const Services = () => {
       features: ['Estrategia personalizada', 'Herramientas de liderazgo', 'Seguimiento prioritario'],
       badge: 'Premium',
       featured: false,
-      link: '/servicios',
+      link: '/services',
     },
   ];
 
@@ -49,29 +59,42 @@ const Services = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Header Section */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <div className="inline-flex items-center gap-3 mb-6">
+        <motion.div
+          className="max-w-4xl mx-auto text-center mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={stagger}
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-6">
             <div className="w-12 h-[1px] bg-amber-600"></div>
             <span className="uppercase tracking-[0.25em] text-amber-700 text-xs font-medium">
               Propuestas Exclusivas
             </span>
             <div className="w-12 h-[1px] bg-amber-600"></div>
-          </div>
+          </motion.div>
 
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
+          <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
             Inversión en tu <span className="italic text-amber-800">evolución personal</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+          <motion.p variants={fadeUp} className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
             Sesiones privadas diseñadas bajo estrictos estándares de confidencialidad y excelencia.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 max-w-7xl mx-auto">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 max-w-7xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={stagger}
+        >
           {servicesData.map((service) => (
-            <div
+            <motion.div
               key={service.id}
+              variants={fadeUp}
               className={`group relative bg-white transition-all duration-500 ${
                 service.featured 
                   ? 'border-2 border-amber-600/30 shadow-2xl md:scale-105 z-10' 
@@ -133,9 +156,9 @@ const Services = () => {
 
               {/* Hover effect decorativo */}
               <div className="absolute -inset-0.5 border border-amber-600/0 group-hover:border-amber-600/20 transition-all duration-500 pointer-events-none"></div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Testimonial Section */}
         <div className="max-w-4xl mx-auto">

@@ -1,6 +1,12 @@
 "use client";
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function Hero() {
   return (
@@ -8,7 +14,7 @@ export default function Hero() {
       {/* Background con overlay optimizado */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/tarot.jpg"
+          src="/tarot.webp"
           alt="Fondo místico de tarot"
           fill
           sizes="100vw"
@@ -33,26 +39,31 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           
           {/* Columna izquierda: Contenido - Mobile First */}
-          <div className="text-center lg:text-left lg:pr-12 order-2 lg:order-1">
+          <motion.div
+            className="text-center lg:text-left lg:pr-12 order-2 lg:order-1"
+            initial="hidden"
+            animate="visible"
+            transition={{ staggerChildren: 0.15, delayChildren: 0.3 }}
+          >
             {/* Badge de exclusividad - Responsive */}
-            <div className="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
               <div className="w-8 sm:w-12 h-[1px] bg-amber-600"></div>
               <span className="uppercase tracking-[0.2em] sm:tracking-[0.25em] text-amber-700 text-[10px] sm:text-xs font-medium">
                 Consultoría Exclusiva
               </span>
               <div className="w-8 sm:w-12 h-[1px] bg-amber-600 lg:hidden"></div>
-            </div>
-            
+            </motion.div>
+
             {/* Título - Mobile First Typography */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-slate-900 mb-4 sm:mb-6 leading-[1.15] sm:leading-[1.1]">
+            <motion.h1 variants={fadeUp} transition={{ duration: 0.7 }} className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-slate-900 mb-4 sm:mb-6 leading-[1.15] sm:leading-[1.1]">
               Transforma tu vida <br className="hidden sm:block" />
               con <span className="italic text-amber-800">claridad estratégica</span>
-            </h1>
-            
+            </motion.h1>
+
             {/* Subtítulo - Optimizado para lectura móvil */}
-            <p className="text-slate-900 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed font-light max-w-xl mx-auto lg:mx-0">
+            <motion.p variants={fadeUp} transition={{ duration: 0.6 }} className="text-slate-900 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed font-light max-w-xl mx-auto lg:mx-0">
               Coaching de élite que combina intuición ancestral con metodologías pragmáticas. Para ejecutivos y emprendedores que buscan resultados extraordinarios.
-            </p>
+            </motion.p>
 
             {/* Prueba social - Stack en mobile, horizontal en tablet+ */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 pb-8 sm:pb-10 border-b border-slate-200 max-w-md mx-auto lg:max-w-none">
@@ -79,7 +90,7 @@ export default function Hero() {
             </div>
 
             {/* CTAs - Stack vertical en mobile, horizontal en sm+ */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:max-w-none">
+            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:max-w-none">
               <button className="group relative bg-slate-900 text-white px-6 sm:px-8 py-4 sm:py-5 overflow-hidden transition-all duration-300 hover:bg-amber-700 w-full sm:w-auto">
                 <span className="relative z-10 uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs font-medium">
                   Agendar Sesión Estratégica
@@ -95,8 +106,8 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Columna derecha: Imagen - Optimizada para mobile */}
           <div className="relative order-1 lg:order-2 max-w-md mx-auto lg:max-w-none w-full">
@@ -108,7 +119,7 @@ export default function Hero() {
             <div className="relative aspect-[3/4] bg-slate-200 overflow-hidden shadow-xl sm:shadow-2xl">
               {/* Next.js Image optimizada */}
               <Image
-                src="/kim.png"
+                src="/kim.webp"
                 alt="Coach profesional de tarot y life coaching de élite"
                 fill
                 sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 600px"
